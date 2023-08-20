@@ -6,6 +6,7 @@ import os
 import time
 import logging
 import MySQLdb
+import sqlite3
 #from tomlkit import datetime
 from datetime import datetime
 #from PyQt5.QtGui import *
@@ -43,7 +44,7 @@ from tornado.web import Application, RequestHandler
 from tornado.websocket import WebSocketHandler
 from tornado.options import define, options
 class Connect:
-
+    connection = sqlite3.connect("carlozanieri.db")
     define("mysql_host", default="carlozanieri.it", help="carlozanieri database host")
     define("mysql_database", default="carlozanieri", help="carlozanieri database name")
     define("mysql_user", default="root", help="carlozanieri database user")
