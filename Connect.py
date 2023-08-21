@@ -154,13 +154,14 @@ class Connect:
         return menu
 
     def submenu(self, menu):
-
-        db = MySQLdb.connect(options.mysql_host, options.mysql_user, options.mysql_password, options.mysql_database)
+        conn = sqlite3.connect("carlozanieri.db")
+        #db = MySQLdb.connect(options.mysql_host, options.mysql_user, options.mysql_password, options.mysql_database)
         ##print(menu)
-        cursor = db.cursor()
-        cursor.execute("SELECT *  from menuweb where livello=3 and radice = '" + menu + "'")
+        #cursor = db.cursor()
+        data = conn.execute("SELECT *  from menuweb where livello=3 and radice = '" + menu + "'")
+        #cursor.execute("SELECT *  from menuweb where livello=3 and radice = '" + menu + "'")
 
-        submenu = cursor.fetchall()
+        submenu = data.fetchall()
         #menu = primanota[1]["descrizione"]
         return submenu
     def submnu(self):
