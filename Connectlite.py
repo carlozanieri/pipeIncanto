@@ -6,7 +6,7 @@ import os
 import time
 import logging
 import MySQLdb
-
+import sqlite3
 #from tomlkit import datetime
 from datetime import datetime
 #from PyQt5.QtGui import *
@@ -43,8 +43,7 @@ from tornado.ioloop import IOLoop
 from tornado.web import Application, RequestHandler
 from tornado.websocket import WebSocketHandler
 from tornado.options import define, options
-class Connect:
-   
+class Connectlite:
     define("mysql_host", default="carlozanieri.it", help="carlozanieri database host")
     define("mysql_database", default="carlozanieri", help="carlozanieri database name")
     define("mysql_user", default="root", help="carlozanieri database user")
@@ -140,11 +139,11 @@ class Connect:
     def menu(self):
 
         db = MySQLdb.connect(options.mysql_host, options.mysql_user, options.mysql_password, options.mysql_database)
-
+        conn = sqlite3.connect("carlozanieri.db")
         cursor = db.cursor()
         cursor.execute("SELECT *  from menuweb where livello=2")
-
-        rows = cursor.fetchall()
+        data = conn.execute("SELECT *  from menuweb where livello=2");  
+        rows = data.fetchall()
         menu = [dict(id=row[0], codice=row[1],radice=row[2], titolo=row[4], link=row[6]) for row in rows]
         #menu = primanota[1]["descrizione"]
         return menu
