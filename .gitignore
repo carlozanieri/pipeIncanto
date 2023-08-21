@@ -11,3 +11,4 @@ img/*
 logs
 logs/*
 /logs
+__pycache__
