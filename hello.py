@@ -8,7 +8,7 @@ import urllib
 from urllib.request import urlopen
 from jinja2 import Environment, FileSystemLoader
 from  Connect import Connect
-from Connectlite import Connectlite
+
 env = Environment(loader=FileSystemLoader('templates'))
 class HelloWorld():
     @cherrypy.expose
@@ -22,7 +22,7 @@ class HelloWorld():
                blogid = kwargs['blogid']
            else :
                pag="blog"
-           page = tmpl.render(pag=pag,blogs=Connect.blog(""), target=kwargs,  manifestazione="blog", menu=Connectlite.menu(""), submenu=Connect.submnu(""),pagina=Connect.body("", "mugello"),  luogo = "mugello", urlx=cherrypy.url())
+           page = tmpl.render(pag=pag,blogs=Connect.blog(""), target=kwargs,  manifestazione="blog", menu=Connect.menu(""), submenu=Connect.submnu(""),pagina=Connect.body("", "mugello"),  luogo = "mugello", urlx=cherrypy.url())
         
         elif cherrypy.url() == 'http://web.carlozanieri.it/':
             tmpl = env.get_template('carlozanieriweb.html')

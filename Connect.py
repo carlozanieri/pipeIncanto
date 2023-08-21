@@ -6,7 +6,7 @@ import os
 import time
 import logging
 import MySQLdb
-
+import sqlite3
 #from tomlkit import datetime
 from datetime import datetime
 #from PyQt5.QtGui import *
@@ -143,8 +143,12 @@ class Connect:
 
         cursor = db.cursor()
         cursor.execute("SELECT *  from menuweb where livello=2")
-
-        rows = cursor.fetchall()
+        conn = sqlite3.connect("carlozanieri.db")
+        cursor = db.cursor()
+        cursor.execute("SELECT *  from menuweb where livello=2")
+        data = conn.execute("SELECT *  from menuweb where livello=2");  
+        rows = data.fetchall()
+        #rows = cursor.fetchall()
         menu = [dict(id=row[0], codice=row[1],radice=row[2], titolo=row[4], link=row[6]) for row in rows]
         #menu = primanota[1]["descrizione"]
         return menu
