@@ -185,36 +185,40 @@ class Connect:
         submenu2 = [dict(id=row[0], radice=row[2], titolo=row[4], link=row[6]) for row in rows]
         return submenu2
     def body(self, pagina):
-
+        conn = sqlite3.connect("carlozanieri.db")
         db = MySQLdb.connect(options.mysql_host, options.mysql_user, options.mysql_password, options.mysql_database)
         ##print(menu)
         cursor = db.cursor()
         cursor.execute("SELECT *  from entries where slug = '" + pagina + "'")
-
-        body = cursor.fetchone()
+        data = conn.execute("SELECT *  from entries where slug = '" + pagina + "'")
+        body = data.fetchone()
         #menu = primanota[1]["descrizione"]
         return body
     def slider(self, luogo):
-
+        conn = sqlite3.connect("carlozanieri.db")
         db = MySQLdb.connect(options.mysql_host, options.mysql_user, options.mysql_password, options.mysql_database)
         ##print(menu)
         cursor = db.cursor()
-        cursor.execute("SELECT *  from slider where codice = '" + luogo + "'")
+        data = conn.execute("SELECT *  from slider where codice = '" + luogo + "'")
+        #cursor.execute("SELECT *  from slider where codice = '" + luogo + "'")
         ##cursor.execute("SELECT *  from slider")
-        slider = cursor.fetchall()
+        slider = data.fetchall()
         #menu = primanota[1]["descrizione"]
         return slider
 
     def news(self):
         data =datetime.now()
+        conn = sqlite3.connect("carlozanieri.db")
         #data = "2021-06-08 00:00:00"
         db = MySQLdb.connect(options.mysql_host, options.mysql_user, options.mysql_password, options.mysql_database)
         ##print(menu)
+        dati = conn.execute("SELECT *  from news")
         cursor = db.cursor()
         ##cursor.execute("SELECT *  from news where published <= '" + str(data) + "'")
         cursor.execute("SELECT *  from news")
         ##cursor.execute("SELECT *  from slider")
-        rows = cursor.fetchall()
+        rows = dati.fetchall()
+        
         news = [dict(id=row[0], title=row[2], dir=row[8], img=row[7], html=row[4], html2=row[9], date=row[6]) for row in rows]
         # menu = primanota[1]["descrizione"]
         return news
