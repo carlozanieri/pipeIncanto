@@ -139,13 +139,13 @@ class Connect:
 
     def menu(self):
 
-        db = MySQLdb.connect(options.mysql_host, options.mysql_user, options.mysql_password, options.mysql_database)
+        ###db = MySQLdb.connect(options.mysql_host, options.mysql_user, options.mysql_password, options.mysql_database)
 
-        cursor = db.cursor()
-        cursor.execute("SELECT *  from menuweb where livello=2")
+        ###cursor = db.cursor()
+        ###cursor.execute("SELECT *  from menuweb where livello=2")
         conn = sqlite3.connect("carlozanieri.db")
-        cursor = db.cursor()
-        cursor.execute("SELECT *  from menuweb where livello=2")
+        ###cursor = db.cursor()
+        ###cursor.execute("SELECT *  from menuweb where livello=2")
         data = conn.execute("SELECT *  from menuweb where livello=2");  
         rows = data.fetchall()
         #rows = cursor.fetchall()
@@ -165,13 +165,13 @@ class Connect:
         #menu = primanota[1]["descrizione"]
         return submenu
     def submnu(self):
-
+        conn = sqlite3.connect("carlozanieri.db")
         db = MySQLdb.connect(options.mysql_host, options.mysql_user, options.mysql_password, options.mysql_database)
         ##print(menu)
         cursor = db.cursor()
         cursor.execute("SELECT *  from menuweb where livello=3 ")
-
-        rows = cursor.fetchall()
+        data = conn.execute("SELECT *  from menuweb where livello=3 ")
+        rows = data.fetchall()
         submenu = [dict(id=row[0], codice=row[1],radice=row[2], titolo=row[4], link=row[6]) for row in rows]
         return submenu
     def submnu2(self):
