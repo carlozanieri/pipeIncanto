@@ -10,7 +10,7 @@
   <link rel="shortcut icon" href="../favicon.ico"/>
   <script src="/static/js/jquery.js"></script>
   <script type="text/javascript" src="/static/blogs/js/responsiveCarousel.js"></script>  
- 
+  
 	<script src="/static/menu_6/js/modernizr.custom.js"></script>
 	<link rel="stylesheet" type="text/css" href="/static/menu_6/css/default.css" />
   <link rel="stylesheet" type="text/css" media="all" href="/static/blogs/css/styles.css"/>
@@ -37,9 +37,11 @@
       
       <div class="crsl-wrap" >
        {% for blogss in blogs %}
+       
         <div class="crsl-item">
           <div class="thumbnail">
-            <img  src= "static/blogs/img/{{blogss.img}}" alt="{{blogss.img}}"></img>
+            
+           <img   class="zoom" src= "static/blogs/img/{{blogss.img}}" alt="{{blogss.img}}"/>
             <span class="postdate">{{blogss.date}}</span>
           </div>
 

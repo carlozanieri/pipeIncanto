@@ -39,8 +39,9 @@
        {% for blogss in blogs %}
         <div class="crsl-item">
           <div class="thumbnail">
-            <img  src= "static/blogs/img/{{blogss.img}}" alt="{{blogss.img}}"></img>
-            <span class="postdate">{{blogss.date}}</span>
+            <img   class="zoom" src= "static/blogs/img/{{blogss.img}}" alt="{{blogss.img}}"/>
+            
+            <a href="/blogs_one?titolo={{blogss.title}}&amp;blogid={{blogss.id}}"><span class="postdate">{{blogss.title}}</span></a>
           </div>
 
           <h3><a href="/blogs_one?titolo={{blogss.title}}&amp;blogid={{blogss.id}}">{{blogss.title}}</a></h3>
