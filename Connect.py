@@ -243,15 +243,16 @@ class Connect:
         #data = date.today().strftime("%Y-%m-%d %H:%M:%S")
         #data = "2021-06-08 00:00:00"
         ##titolo=titolo
+        conn = sqlite3.connect("carlozanieri.db")
         db = MySQLdb.connect(options.mysql_host, options.mysql_user, options.mysql_password, options.mysql_database)
         ##print(titolo)
-        cursor = db.cursor()
+        #cursor = db.cursor()
         ####cursor.execute("SELECT *  from blog where id = 3")
-        
-        cursor.execute("SELECT *  from blog where id ='" + id + "'" )
+        data = conn.execute("SELECT *  from blog where id ='" + id + "'" )
+        #cursor.execute("SELECT *  from blog where id ='" + id + "'" )
         ##cursor.execute("SELECT *  from slider")
         ##news = cursor.fetchall()
-        rows = cursor.fetchall()
+        rows = data.fetchall()
         blogs = [dict(id=row[0], title=row[3], dir=row[9], img=row[7], html=row[4], date=row[6]) for row in rows]
         return blogs
     
