@@ -98,7 +98,7 @@ h1 {
   transition: all 0.3s linear;
 }
 .crsl-item .thumbnail:hover img {
-  opacity: 0.8;
+  opacity: 2;
 }
 
 .crsl-item h3 {
