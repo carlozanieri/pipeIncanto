@@ -253,7 +253,7 @@ class Connect:
         ##cursor.execute("SELECT *  from slider")
         ##news = cursor.fetchall()
         rows = data.fetchall()
-        blogs = [dict(id=row[0], title=row[3], dir=row[9], img=row[7], html=row[4], date=row[6]) for row in rows]
+        blogs = [dict(id=row[0], title=row[2], dir=row[9], img=row[7], html=row[4], date=row[6]) for row in rows]
         return blogs
     
     def news_one(self, titolo, id):

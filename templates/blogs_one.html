@@ -25,7 +25,7 @@
   
   {% include 'menu5.html' %}
 <h1>{{titolo}}</h1>
-  <div id="w" style="margin-left:19%;margin-right:10%;margin-top:-21%">
+  <div id="w" style="margin-left:10%;margin-right:10%;margin-top:-21%; max-width: 20%; max-height: 20%;">
 
 
 
@@ -38,14 +38,15 @@
         
         <div class="crsl-item">
           <div class="thumbnail">
-            <img  src= "static/blogs/img/{{blogss.img}}" alt="{{blogss.img}}"/>
-            <span class="postdate">{{blogss.title}}</span>
+            <img class="zoom" src= "static/blogs/img/{{blogss.img}}" alt="{{blogss.img}}"/>
+            <a  href="#" class="postdate"> {{blogss.title}}</a> 
           </div>
+               
 
-          <h3><a href="#">{{blogss.title}}</a></h3>
+          <p>
+            {{blogss.html}}</p>
 
-          <p>{{blogss.html}}</p>
-
+          
           <p class="readmore"><a href="/blog">Go Back &raquo;</a></p>
         </div><!-- post #1 -->
         
