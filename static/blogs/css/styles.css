@@ -47,7 +47,7 @@ strong, b { font-weight: bold; }
 em, i { font-style: italic; }
 
 table { border-collapse: collapse; border-spacing: 0; }
-img { border: 0; max-width: 100%; }
+img { border: 0; max-width: 80%; max-height: 80%;}
 
 h1 {
   font-family: 'Exo 2', sans-serif;
@@ -63,7 +63,8 @@ h1 {
 /** page structure **/
 #w {
   display: block;
-  max-width: 1660px;
+  max-width: 1960px;
+  max-height: 360px;
   min-width: 50px;
   margin: 0 auto;
   padding: 2px 3px;
