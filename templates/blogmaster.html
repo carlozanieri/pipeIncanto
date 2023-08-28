@@ -53,7 +53,13 @@
             <input id="pag" name="pag" type="hidden" value="blogs_one" />
             <input type="submit" value="Dettaglio" />
           </form>
-          
+          <form action="add_cart" method="post" accept-charset="utf-8" enctype="multipart/form-data" target="_parent">
+            <input id="titolo" name="titolo" type="hidden" value="{{blogss.title}}" />
+            <input id="id" name="blogid" type="hidden" value="{{blogss.id}}" />
+            
+            <input type="submit" value="Add to Cart" />
+          </form>
+
           <!--<p class="readmore"><a href="http://localhost/?pag=blogs_one&amp;titolo={{blogss.title}}&amp;blogid={{blogss.id}}"  target="_parent">Read More</a></p> -->
         </div>
       {% endfor %}

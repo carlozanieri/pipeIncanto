@@ -46,8 +46,15 @@
           <p>
             {{blogss.html}}</p>
 
-          
-          <p class="readmore"><a href="/blog">Go Back &raquo;</a></p>
+            <form action="add_cart" method="post" accept-charset="utf-8" enctype="multipart/form-data" target="_parent">
+              <input id="titolo" name="titolo" type="hidden" value="{{blogss.title}}" />
+              <input id="id" name="blogid" type="hidden" value="{{blogss.id}}" />
+              
+              <input type="submit" value="Add to Cart" />
+            </form>
+          <p class="readmore">
+           
+            <a href="/blog">Go Back &raquo;</a></p>
         </div><!-- post #1 -->
         
         {%endfor%}

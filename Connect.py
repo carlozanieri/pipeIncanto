@@ -270,6 +270,36 @@ class Connect:
         rows = cursor.fetchall()
         news = [dict(id=row[0], title=row[3], dir=row[9], img=row[7], html=row[5], date=row[6]) for row in rows]
         return news
+    def add_cart1(self, id, titolo):
+        
+        conn = sqlite3.connect("carlozanieri.db")
+        c = conn.cursor()
+        c.execute('''INSERT INTO cart (email, address, mobile, order_date, status, customer_id, product_id) VALUES('carlo.zanieri@gmail.com', '', '', '', '', 0, 0)''' )
+        
+        conn.commit
+        conn.close
+
+    def add_cart(self, id, titolo):
+
+        db = sqlite3.connect("carlozanieri.db")
+        mycursor = db.cursor()
+        data=str(datetime.now())
+        riga="INSERT INTO cart (email, address, mobile, order_date, status, customer_id, product_id) VALUES(?, ?, ?,?, ?,?, ?)"
+        valori = ('carlo.zanieri@gmail.com', '', '', '', '', 0, 0)
+        mycursor.execute(riga, valori)
+        args = (data, data)
+        #mycursor.execute(insertQuery)
+  
+        print("No of Record Inserted :", mycursor.rowcount)
+  
+        # we can use the id to refer to that row later.
+        print("Inserted Id :", mycursor.lastrowid)
+  
+        # To ensure the Data Insertion, commit database.
+        db.commit() 
+  
+        # close the Connection
+        db.close()
 
     def manifesta(self):
         data = date.today().strftime("%Y-%m-%d %H:%M:%S")
@@ -322,10 +352,10 @@ class Connect:
     
     def ins_news(self, dir, file, titolo, descrizione, tipo):
 
-        db = MySQLdb.connect(options.mysql_host, options.mysql_user, options.mysql_password, options.mysql_database)
+        db = sqlite3.connect("carlozanieri.db")
         mycursor = db.cursor()
         data=str(datetime.now())
-        riga="INSERT INTO news (id,author_id,title, markdown, html, img, dir, html2, html3, img2,img3) VALUES (%s, %s, %s,%s, %s, %s,%s, %s, %s,%s, %s)"
+        riga="INSERT INTO news (id,author_id,title, markdown, html, img, dir, html2, html3, img2,img3) VALUES (?, ?, ?,?, ?, ?,?, ?, ?,?, ?)"
         valori = (0,2,titolo,descrizione,descrizione,file,dir,'html2','html3','img2','img3')
         mycursor.execute(riga, valori)
         args = (data, data)

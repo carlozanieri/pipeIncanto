@@ -237,6 +237,7 @@ Length: {}
 Mime-type: {}
 ''' .format(upload_path + "/" + file.filename, size, file.content_type, data)
         return out
+   
 
     @cherrypy.expose
     def ins_manifesta(self, file, dir, titolo, descrizione, dirdb):
@@ -289,6 +290,11 @@ Mime-type: {}
         tmp=env.get_template('inserimenti.html')
         return tmp.render( pagina=Connect.body("", "sanpiero"), manifestazione="news", news=Connect.news(""), directory="./static/news/img/",dirdb="/news/img/" ,tipo="news")
 
+    @cherrypy.expose
+    def add_cart(self, blogid, titolo):
+       
+                Connect.add_cart('',blogid, titolo)
+       
 
     @cherrypy.expose
     def manifesta(request):
@@ -297,3 +303,5 @@ Mime-type: {}
         return tmp.render( pagina=Connect.body("", "sanpiero"), manifestazione="news", news=Connect.news(""))
 configfile=os.path.join(os.path.dirname(__file__),'./server.conf')
 cherrypy.quickstart(HelloWorld(), config=configfile)
+
+    
