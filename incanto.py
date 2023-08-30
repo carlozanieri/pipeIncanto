@@ -32,6 +32,7 @@ class HelloWorld():
         elif cherrypy.url() == 'http://linuxmugello.net/' :
             tmpl = env.get_template('mytemplate.html')
             page = tmpl.render( blogs=Connect.blog(""), target='World',  menu=Connect.menu(""), submenu=Connect.submnu(""),pagina=Connect.body("", "mugello"),  luogo = "mugello", urlx=cherrypy.url())
+        
         elif cherrypy.url() == 'http://localhost/' :
            tmpl = env.get_template('mytemplate.html')
            if kwargs :
@@ -41,6 +42,8 @@ class HelloWorld():
                pag="blog"
            page = tmpl.render(pag=pag,blogs=Connect.blog(""), target=kwargs,  manifestazione="blog", menu=Connect.menu(""), submenu=Connect.submnu(""),pagina=Connect.body("", "mugello"),  luogo = "mugello", urlx=cherrypy.url())
         
+    
+
         elif cherrypy.url() == 'http://carlozanieri.it/' :
            tmpl = env.get_template('mytemplate.html')
            if kwargs :
@@ -49,7 +52,16 @@ class HelloWorld():
                pag="master"
            page = tmpl.render(pag=pag,blogs=Connect.blog(""), target=kwargs,  manifestazione="blog", menu=Connect.menu(""), submenu=Connect.submnu(""),pagina=Connect.body("", "mugello"),  luogo = "mugello", urlx=cherrypy.url())
         
+        elif cherrypy.url() == 'http://carlozanieri.net/' :
+           tmpl = env.get_template('mytemplate.html')
+           if kwargs :
+               pag = kwargs['pag']
+               blogid = kwargs['blogid']
+           else :
+               pag="master"
+           page = tmpl.render(pag=pag,blogs=Connect.blog(""), target=kwargs,  manifestazione="blog", menu=Connect.menu(""), submenu=Connect.submnu(""),pagina=Connect.body("", "mugello"),  luogo = "mugello", urlx=cherrypy.url())
         
+
             
         elif cherrypy.url() == 'http://0.0.0.0/' :
             tmpl = env.get_template('index.html')
