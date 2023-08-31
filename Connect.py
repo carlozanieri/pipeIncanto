@@ -223,6 +223,21 @@ class Connect:
         # menu = primanota[1]["descrizione"]
         return news
 
+    def products(self):
+        data =datetime.now()
+        conn = sqlite3.connect("carlozanieri.db")
+        
+        #cursor = db.cursor()
+        
+        #cursor.execute("SELECT *  from product")
+        data = conn.execute("SELECT *  from product")
+        ##cursor.execute("SELECT *  from slider")
+        rows = data.fetchall()
+        products = [dict(id=row[0], title=row[1], img=row[2], price=row[3], description=row[4]) for row in rows]
+        # menu = primanota[1]["descrizione"]
+        return products
+
+
     def blog(self):
         data =datetime.now()
         conn = sqlite3.connect("carlozanieri.db")

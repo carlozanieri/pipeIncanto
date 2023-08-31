@@ -36,31 +36,31 @@
     <div class="crsl-items" data-navigation="navbtns" >
       
       <div class="crsl-wrap" >
-       {% for blogss in blogs %}
+       {% for productss in products %}
         <div class="crsl-item">
           <div class="thumbnail">
-            <img   class="zoom" src= "static/blogs/img/{{blogss.img}}" alt="{{blogss.img}}"/>
+            <img   class="zoom" src= "static/blogs/img/{{productss.img}}" alt="{{productss.img}}"/>
             
-            <a href="/blogs_one?titolo={{blogss.title}}&amp;blogid={{blogss.id}}"><span class="postdate">{{blogss.title}}</span></a>
+            <a href="/blogs_one?titolo={{productss.title}}&amp;blogid={{productss.id}}"><span class="postdate">{{productss.title}}</span></a>
           </div>
 
-          <!--<h3><a href="/blogs_one?titolo={{blogss.title}}&amp;blogid={{blogss.id}}">{{blogss.title}}</a></h3>-->
+          <!--<h3><a href="/blogs_one?titolo={{productss.title}}&amp;blogid={{productss.id}}">{{productss.title}}</a></h3>-->
 
-          <p>{{blogss.html2}}</p>
+          <p>{{productss.html2}}</p>
           <form action="blogs_one" method="post" accept-charset="utf-8" enctype="multipart/form-data" target="_parent">
-            <input id="titolo" name="titolo" type="hidden" value="{{blogss.title}}" />
-            <input id="blogid" name="blogid" type="hidden" value="{{blogss.id}}" />
+            <input id="titolo" name="titolo" type="hidden" value="{{productss.title}}" />
+            <input id="blogid" name="blogid" type="hidden" value="{{productss.id}}" />
             <input id="pag" name="pag" type="hidden" value="blogs_one" />
             <input type="submit" value="Dettaglio" />
           </form>
           <form action="add_cart" method="post" accept-charset="utf-8" enctype="multipart/form-data" target="_parent">
-            <input id="titolo" name="titolo" type="hidden" value="{{blogss.title}}" />
-            <input id="id" name="blogid" type="hidden" value="{{blogss.id}}" />
+            <input id="titolo" name="titolo" type="hidden" value="{{productss.title}}" />
+            <input id="id" name="blogid" type="hidden" value="{{productss.id}}" />
             
             <input type="submit" value="Add to Cart" />
           </form>
 
-          <!--<p class="readmore"><a href="http://localhost/?pag=blogs_one&amp;titolo={{blogss.title}}&amp;blogid={{blogss.id}}"  target="_parent">Read More</a></p> -->
+          <!--<p class="readmore"><a href="http://localhost/?pag=blogs_one&amp;titolo={{productss.title}}&amp;blogid={{productss.id}}"  target="_parent">Read More</a></p> -->
         </div>
       {% endfor %}
 

@@ -39,8 +39,8 @@ class HelloWorld():
                pag = kwargs['pag']
                blogid = kwargs['blogid']
            else :
-               pag="blog"
-           page = tmpl.render(pag=pag,blogs=Connect.blog(""), target=kwargs,  manifestazione="blog", menu=Connect.menu(""), submenu=Connect.submnu(""),pagina=Connect.body("", "mugello"),  luogo = "mugello", urlx=cherrypy.url())
+                pag="blog"
+                page = tmpl.render(pag=pag,products=Connect.products(""), target=kwargs,  manifestazione="blog", menu=Connect.menu(""), submenu=Connect.submnu(""),pagina=Connect.body("", "mugello"),  luogo = "mugello", urlx=cherrypy.url())
         
     
 
