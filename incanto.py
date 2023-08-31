@@ -42,7 +42,14 @@ class HelloWorld():
                 pag="blog"
                 page = tmpl.render(pag=pag,products=Connect.products(""), target=kwargs,  manifestazione="blog", menu=Connect.menu(""), submenu=Connect.submnu(""),pagina=Connect.body("", "mugello"),  luogo = "mugello", urlx=cherrypy.url())
         
-    
+        elif cherrypy.url() == 'carlozanieri.it' :
+           tmpl = env.get_template('mytemplate.html')
+           if kwargs :
+                pag = kwargs['pag']
+           else :
+               pag="master"
+           page = tmpl.render(pag=pag,products=Connect.products(""), target=kwargs,  manifestazione="blog", menu=Connect.menu(""), submenu=Connect.submnu(""),pagina=Connect.body("", "mugello"),  luogo = "mugello", urlx=cherrypy.url())
+        
 
         elif cherrypy.url() == 'http://carlozanieri.it/' :
            tmpl = env.get_template('mytemplate.html')
