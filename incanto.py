@@ -27,7 +27,7 @@ class HelloWorld():
         elif cherrypy.url() == 'http://web.carlozanieri.it/':
             tmpl = env.get_template('carlozanieriweb.html')
 
-            page= tmpl.render( blogs=Connect.blog(""), target='World',  menu=Connect.menu(""), submenu=Connect.submnu(""),pagina=Connect.body("", "index"),  luogo = "index")   
+            page= tmpl.render( products=Connect.products(""), blogs=Connect.blog(""), target='World',  menu=Connect.menu(""), submenu=Connect.submnu(""),pagina=Connect.body("", "index"),  luogo = "index")   
         
         elif cherrypy.url() == 'http://linuxmugello.net/' :
             tmpl = env.get_template('mytemplate.html')
