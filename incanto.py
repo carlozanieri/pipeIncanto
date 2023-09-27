@@ -112,12 +112,12 @@ class HelloWorld():
     
     @cherrypy.expose
     def slide(self, luogo):
-        tmp=env.get_template('nivo.html')
+        tmp = env.get_template('nivo.html')
         streamValue=tmp.generate()
         
         #luogo = request.params[0]
 
-        return tmp.render(luogo = "sanpiero", slider=Connect.slider("", luogo), renderer="json")
+        return tmp.render(luogo="sanpiero", slider=Connect.slider("", luogo), renderer="json")
 
 
     
