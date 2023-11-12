@@ -33,7 +33,8 @@ class HelloWorld():
             tmpl = env.get_template('mytemplate.html')
             page = tmpl.render( blogs=Connect.blog(""), target='World',  menu=Connect.menu(""), submenu=Connect.submnu(""),pagina=Connect.body("", "mugello"),  luogo = "mugello", urlx=cherrypy.url())
         
-        elif cherrypy.url() == 'http://localhost/' :
+        
+        elif cherrypy.url() == 'http://localhost/':
            tmpl = env.get_template('mytemplate.html')
            if kwargs :
                pag = kwargs['pag']
@@ -312,7 +313,7 @@ Mime-type: {}
     @cherrypy.expose
     def add_cart(self, blogid, titolo):
        
-                Connect.add_cart('',blogid, titolo)
+        Connect.add_cart('',blogid, titolo)
        
 
     @cherrypy.expose
