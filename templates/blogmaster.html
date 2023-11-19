@@ -39,11 +39,12 @@
        {% for productss in products %}
         <div class="crsl-item">
           <div class="thumbnail">
-            <img   class="zoom" src= "static/blogs/img/{{productss.img}}" alt="{{productss.img}}"/>
+           
             
-            <a href="/blogs_one?titolo={{productss.title}}&amp;blogid={{productss.id}}"><span class="postdate">{{productss.title}}</span></a>
+            
+            <img   class="zoom" src= "static/blogs/img/{{productss.img}}" alt="{{productss.img}}"/>
           </div>
-
+          <a href="/blogs_one?titolo={{productss.title}}&amp;blogid={{productss.id}}"><span class="postdate">{{productss.title}}</span></a>
           <!--<h3><a href="/blogs_one?titolo={{productss.title}}&amp;blogid={{productss.id}}">{{productss.title}}</a></h3>-->
 
           <p>{{productss.html2}}</p>
